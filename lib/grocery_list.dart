@@ -107,6 +107,8 @@ for (final item in data.entries) {
                 ),
                 onDismissed: (direction) {
                   setState(() {
+                    final url = Uri.parse('https://flutterproject-d0387-default-rtdb.firebaseio.com/albums/${_groceryItems[index].id}.json');
+                    http.delete(url);
                     _groceryItems.removeAt(index);
                     isEmpty = _groceryItems.isEmpty;
                   });
